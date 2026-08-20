@@ -46,15 +46,29 @@
                     <div class="form-group"><label for="npm" class="form-label">NPM<span class="required-star">*</span></label><input type="text" id="npm" name="npm" class="form-control" maxlength="9" /><span id="npmError" class="error-message">NPM harus berisi tepat 9 digit angka.</span></div>
                     <div class="form-group"><label for="email" class="form-label">Email<span class="required-star">*</span></label><input type="text" id="email" name="email" class="form-control" /><span id="emailError" class="error-message">Masukkan alamat email yang valid.</span></div>
                     <div class="form-group"><label for="phone" class="form-label">No Telepon<span class="required-star">*</span></label><input type="text" id="phone" name="phone" class="form-control" /><span id="phoneError" class="error-message">Nomor telepon harus 10-14 digit.</span></div>
-                    <div class="form-group"><label for="studyProgram" class="form-label">Program Studi<span class="required-star">*</span></label><select id="studyProgram" name="studyProgram" class="form-select"><option value="">-- Pilih Program Studi --</option>
-                        <option value="Informatika">Informatika</option><option value="Magister Informatika">Magister Informatika</option><option value="Doktor Teknologi Informasi">Doktor Teknologi Informasi</option><option value="Sistem Informasi">Sistem Informasi</option><option value="Teknik Industri">Teknik Industri</option>
-                        <option value="Teknik Industri Internasional">Teknik Industri Internasional</option><option value="Magister Teknik Industri">Magister Teknik Industri</option><option value="Teknik Sipil">Teknik Sipil</option><option value="Teknik Sipil Internasional">Teknik Sipil Internasional</option><option value="Magister Teknik Sipil">Magister Teknik Sipil</option>
-                        <option value="Doktor Teknik Sipil">Doktor Teknik Sipil</option><option value="Arsitektur">Arsitektur</option><option value="Magister Arsitektur">Magister Arsitektur</option><option value="Doktor Arsitektur">Doktor Arsitektur</option><option value="Profesi Arsitektur">Profesi Arsitektur</option><option value="Biologi">Biologi</option>
-                        <option value="Teknologi Pangan">Teknologi Pangan</option><option value="Manajemen">Manajemen</option><option value="Manajemen Internasional">Manajemen Internasional</option><option value="Magister Manajemen">Magister Manajemen</option><option value="Akuntansi">Akuntansi</option><option value="Akuntansi Internasional">Akuntansi Internasional</option>
-                        <option value="Magister Akuntansi">Magister Akuntansi</option><option value="Ekonomi Pembangunan">Ekonomi Pembangunan</option><option value="Hukum">Hukum</option><option value="Hukum Internasional">Hukum Internasional</option><option value="Magister Hukum">Magister Hukum</option><option value="Ilmu Komunikasi">Ilmu Komunikasi</option>
-                        <option value="Ilmu Komunikasi Internasional">Ilmu Komunikasi Internasional</option><option value="Magister Ilmu Komunikasi">Magister Ilmu Komunikasi</option><option value="Sosiologi">Sosiologi</option><option value="Kedokteran">Kedoteran</option>
-                        <option value="Lainnya">Program Studi Lainnya</option></select><span id="studyProgramError" class="error-message">Silakan pilih program studi.</span></div>
-                    <div class="form-group"><label for="workshopSession" class="form-label">Pilihan Sesi<span class="required-star">*</span></label><select id="workshopSession" name="workshopSession" class="form-select"><option value="">-- Pilih Sesi Workshop --</option><option value="Session 1: Introduction to Generative AI &amp; Prompt Engineering">Sesi 1: Introduction to Generative AI &amp; Prompt Engineering</option><option value="Session 2: Hands-on: Boosting Academic Productivity with AI">Sesi 2: Hands-on: Boosting Academic Productivity with AI</option><option value="Session 3: Ethical AI Use &amp; QnA Session">Sesi 3: Ethical AI Use &amp; QnA Session</option></select><span id="workshopSessionError" class="error-message">Silakan pilih sesi workshop.</span></div>
+                    <div class="form-group">
+                        <label for="studyProgram" class="form-label">Program Studi<span class="required-star">*</span></label>
+                        <select id="studyProgram" name="studyProgram" class="form-select"><option value="">-- Pilih Program Studi --</option>
+                            <option value="Informatika">Informatika</option><option value="Magister Informatika">Magister Informatika</option><option value="Doktor Teknologi Informasi">Doktor Teknologi Informasi</option><option value="Sistem Informasi">Sistem Informasi</option><option value="Teknik Industri">Teknik Industri</option>
+                            <option value="Teknik Industri Internasional">Teknik Industri Internasional</option><option value="Magister Teknik Industri">Magister Teknik Industri</option><option value="Teknik Sipil">Teknik Sipil</option><option value="Teknik Sipil Internasional">Teknik Sipil Internasional</option><option value="Magister Teknik Sipil">Magister Teknik Sipil</option>
+                            <option value="Doktor Teknik Sipil">Doktor Teknik Sipil</option><option value="Arsitektur">Arsitektur</option><option value="Magister Arsitektur">Magister Arsitektur</option><option value="Doktor Arsitektur">Doktor Arsitektur</option><option value="Profesi Arsitektur">Profesi Arsitektur</option><option value="Biologi">Biologi</option>
+                            <option value="Teknologi Pangan">Teknologi Pangan</option><option value="Manajemen">Manajemen</option><option value="Manajemen Internasional">Manajemen Internasional</option><option value="Magister Manajemen">Magister Manajemen</option><option value="Akuntansi">Akuntansi</option><option value="Akuntansi Internasional">Akuntansi Internasional</option>
+                            <option value="Magister Akuntansi">Magister Akuntansi</option><option value="Ekonomi Pembangunan">Ekonomi Pembangunan</option><option value="Hukum">Hukum</option><option value="Hukum Internasional">Hukum Internasional</option><option value="Magister Hukum">Magister Hukum</option><option value="Ilmu Komunikasi">Ilmu Komunikasi</option>
+                            <option value="Ilmu Komunikasi Internasional">Ilmu Komunikasi Internasional</option><option value="Magister Ilmu Komunikasi">Magister Ilmu Komunikasi</option><option value="Sosiologi">Sosiologi</option><option value="Kedokteran">Kedoteran</option>
+                            <option value="Lainnya">Program Studi Lainnya</option>
+                        </select>
+                        <span id="studyProgramError" class="error-message">Silakan pilih program studi.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="workshopSession" class="form-label">Pilihan Sesi<span class="required-star">*</span></label>
+                        <select id="workshopSession" name="workshopSession" class="form-select">
+                            <option value="">-- Pilih Sesi Workshop --</option>
+                            <option value="Session 1: Introduction to Generative AI &amp; Prompt Engineering">Sesi 1: Introduction to Generative AI &amp; Prompt Engineering</option>
+                            <option value="Session 2: Hands-on: Boosting Academic Productivity with AI">Sesi 2: Hands-on: Boosting Academic Productivity with AI</option>
+                            <option value="Session 3: Ethical AI Use &amp; QnA Session">Sesi 3: Ethical AI Use &amp; QnA Session</option>
+                        </select>
+                        <span id="workshopSessionError" class="error-message">Silakan pilih sesi workshop.</span>
+                    </div>
                 </div>
                 <div class="form-group registration-notes"><label for="notes" class="form-label">Catatan</label><textarea id="notes" name="notes" rows="4"></textarea><div class="char-counter"><span id="charCount">200</span> karakter tersisa</div></div>
                 <div id="livePreviewCard" class="is-hidden"><span id="prevName">-</span><span id="prevNpm">-</span><span id="prevSession">-</span></div>
@@ -63,7 +77,27 @@
         </main>
     </div>
 
-    <div class="footer-main home-footer registration-footer"><div class="footer-columns"><div class="footer-contact"><img src="images/UAJY-LOGOGRAM_V.5b7a003.png" alt="Logo Universitas Atma Jaya Yogyakarta" class="footer-logo" /><p>Kampus II Gedung Thomas Aquinas<br />Jalan Babarsari 44 Yogyakarta<br />&#9742; 0274-487711<br />&#9993; Humas@uajy.ac.id</p></div><div class="footer-about"><strong>ABOUT</strong><p>Universitas Atma Jaya Yogyakarta (UAJY) is a private university founded by the laity and managed by Slamet Rijadi Foundation - Yogyakarta, under the patronage of Saint Albert Magnus sigma</p><p>UAJY was established on September 27, 1965, aiming to participate in educating nation with a local dimension and global orientation.</p></div></div><div class="footer-copyright">&#169; 2026. Rafael Venansius Anastasios Devin - 230712404</div></div>
+    <div class="footer-main home-footer registration-footer">
+        <div class="footer-columns">
+            <div class="footer-contact">
+                <img src="images/UAJY-LOGOGRAM_V.5b7a003.png" alt="Logo Universitas Atma Jaya Yogyakarta" class="footer-logo" />
+                <p>
+                    Kampus II Gedung Thomas Aquinas<br />Jalan Babarsari 44 Yogyakarta<br />&#9742; 0274-487711<br />&#9993; Humas@uajy.ac.id
+                </p>
+            </div>
+            <div class="footer-about">
+                <strong>ABOUT</strong>
+                <p>
+                    Universitas Atma Jaya Yogyakarta (UAJY) is a private university founded by the laity and managed by 
+                    Slamet Rijadi Foundation - Yogyakarta, under the patronage of Saint Albert Magnus sigma
+                </p>
+                <p>
+                    UAJY was established on September 27, 1965, aiming to participate in educating nation with a local dimension and global orientation.
+                </p>
+            </div>
+        </div>
+        <div class="footer-copyright">&#169; 2026. Rafael Venansius Anastasios Devin - 230712404</div>
+    </div>
 
 </body>
 </html>
