@@ -1,12 +1,4 @@
-/* ==========================================================================
-   UAJY Technology Workshop 2026 - Main Stylesheet
-   File: css/style.css
-   Specification: Clean, responsive, modern design with XHTML compatibility
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. Root Variables & Theme Colors
-   -------------------------------------------------------------------------- */
+/* Theme */
 :root {
     --bg-primary: #f8fafc;
     --bg-surface: #ffffff;
@@ -32,21 +24,7 @@
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Dark Mode Overrides */
-body.dark-theme {
-    --bg-primary: #0f172a;
-    --bg-surface: #1e293b;
-    --bg-card: #1e293b;
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #64748b;
-    --border-color: #334155;
-    --accent-light: #1e3a8a;
-}
-
-/* --------------------------------------------------------------------------
-   2. Reset & General Elements
-   -------------------------------------------------------------------------- */
+/*  Reset & General Elements */
 * {
     margin: 0;
     padding: 0;
@@ -86,9 +64,7 @@ img {
     display: block;
 }
 
-/* --------------------------------------------------------------------------
-   3. Header & Navigation Layout
-   -------------------------------------------------------------------------- */
+/* Header & Navigation Layout */
 .navbar-header {
     background-color: var(--bg-surface);
     border-bottom: 1px solid var(--border-color);
@@ -164,9 +140,7 @@ img {
     background-color: var(--accent-light);
 }
 
-/* --------------------------------------------------------------------------
-   4. Main Container & Layout
-   -------------------------------------------------------------------------- */
+/* Main Wrapper */
 .main-wrapper {
     max-width: 1100px;
     margin: 2rem auto;
@@ -268,9 +242,7 @@ img {
     }
 }
 
-    /* --------------------------------------------------------------------------
-    5. Form Component (XHTML Form)
-    -------------------------------------------------------------------------- */
+    /*  Form Component (XHTML Form) */
     .form-card {
         background-color: var(--bg-surface);
         border: 1px solid var(--border-color);
@@ -331,13 +303,6 @@ img {
         font-weight: 600;
     }
 
-    .char-counter {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        text-align: right;
-        margin-top: 0.25rem;
-    }
-
     .btn {
         display: inline-block;
         padding: 0.75rem 1.75rem;
@@ -374,9 +339,7 @@ img {
         background-color: var(--border-color);
     }
 
-    /* --------------------------------------------------------------------------
-    6. Table Component (XHTML Table)
-    -------------------------------------------------------------------------- */
+    /*  Table Component (XHTML Table) */
     .table-card {
         background-color: var(--bg-surface);
         border: 1px solid var(--border-color);
@@ -443,9 +406,7 @@ img {
         color: var(--success-color);
     }
 
-    /* --------------------------------------------------------------------------
-    7. Alert Messages (Flash / PHP output)
-    -------------------------------------------------------------------------- */
+    /* Alert */
     .alert {
         padding: 1rem 1.25rem;
         border-radius: var(--radius-md);
@@ -465,9 +426,7 @@ img {
         border: 1px solid #fecaca;
     }
 
-    /* --------------------------------------------------------------------------
-    8. Footer Layout
-    -------------------------------------------------------------------------- */
+    /* Footer Layout */
     .footer-main {
         background-color: var(--bg-surface);
         border-top: 1px solid var(--border-color);
@@ -478,9 +437,7 @@ img {
         font-size: 0.9rem;
     }
 
-    /* --------------------------------------------------------------------------
-    9. Responsive Design Breakpoints
-    -------------------------------------------------------------------------- */
+    /* Responsif Desain */
     @media (max-width: 768px) {
         .header-container {
             flex-direction: column;
@@ -501,9 +458,7 @@ img {
         }
     }
 
-/* --------------------------------------------------------------------------
-   10. Home Page Reference Layout
-   -------------------------------------------------------------------------- */
+/* Referensi Halaman Utama */
 .home-navbar {
     background-color: #06379f !important;
     border-bottom: 0;
@@ -983,10 +938,6 @@ img {
     resize: vertical;
 }
 
-.registration-form .char-counter {
-    display: none;
-}
-
 .registration-actions {
     display: flex;
     gap: 1.5rem;
@@ -1105,6 +1056,16 @@ img {
 .status-actions {
     display: flex;
     gap: 1rem;
+}
+
+.status-actions .btn,
+.status-back-action .btn {
+    min-width: 115px;
+    padding: 0.45rem 1.2rem;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 400;
 }
 
 .status-error-list {

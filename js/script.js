@@ -1,10 +1,4 @@
-/* ==========================================================================
-   UAJY Technology Workshop 2026 - Main JavaScript & jQuery Script
-   File: js/script.js
-   Specification: Form Validation, DOM Manipulation, jQuery Effects & Features
-   ========================================================================== */
-
-// Homepage slideshow works independently from the optional jQuery features.
+// Home slideshow
 (function () {
     function startCampusSlideshow() {
         var slides = document.querySelectorAll(".campus-slide");
@@ -39,111 +33,11 @@
     }
 }());
 
-// Execute script after DOM ready using jQuery
+// Setelah DOM siap menggunakkan jQuery
 if (typeof $ !== "undefined") {
     $(document.body).ready(function () {
     console.log("UAJY Technology Workshop 2026 JavaScript loaded successfully.");
-
-    /* ----------------------------------------------------------------------
-       1. Theme Toggle (Dark Mode / Light Mode DOM Manipulation)
-       ---------------------------------------------------------------------- */
-    var savedTheme = localStorage.getItem("uajy_theme");
-    if (savedTheme === "dark") {
-        $("body").addClass("dark-theme");
-        $("#themeToggleBtn").text("Mode Terang");
-    }
-
-    $("#themeToggleBtn").on("click", function () {
-        $("body").toggleClass("dark-theme");
-        var isDark = $("body").hasClass("dark-theme");
-
-        if (isDark) {
-            $(this).text("Mode Terang");
-            localStorage.setItem("uajy_theme", "dark");
-        } else {
-            $(this).text("Mode Gelap");
-            localStorage.setItem("uajy_theme", "light");
-        }
-    });
-
-    /* ----------------------------------------------------------------------
-       2. Countdown Timer Widget (DOM Manipulation)
-       ---------------------------------------------------------------------- */
-    if ($("#countdownWidget").length > 0) {
-        var eventDate = new Date("August 25, 2026 08:00:00").getTime();
-
-        function updateCountdown() {
-            var now = new Date().getTime();
-            var distance = eventDate - now;
-
-            if (distance < 0) {
-                $("#countdownWidget").html("<div class='timer-unit'>Event Sedang Berlangsung!</div>");
-                return;
-            }
-
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // DOM manipulation
-            $("#timerDays").text(days < 10 ? "0" + days : days);
-            $("#timerHours").text(hours < 10 ? "0" + hours : hours);
-            $("#timerMinutes").text(minutes < 10 ? "0" + minutes : minutes);
-            $("#timerSeconds").text(seconds < 10 ? "0" + seconds : seconds);
-        }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-    }
-
-    /* ----------------------------------------------------------------------
-       3. Live Character Counter for Textarea (DOM Manipulation)
-       ---------------------------------------------------------------------- */
-    var maxNotesChar = 200;
-    $("#notes").on("input keyup", function () {
-        var currentLength = $(this).val().length;
-        var remaining = maxNotesChar - currentLength;
-
-        if (remaining < 0) {
-            $(this).val($(this).val().substring(0, maxNotesChar));
-            remaining = 0;
-        }
-
-        // DOM update
-        $("#charCount").text(remaining);
-        if (remaining < 20) {
-            $("#charCount").css("color", "var(--error-color)");
-        } else {
-            $("#charCount").css("color", "inherit");
-        }
-    });
-
-    /* ----------------------------------------------------------------------
-       4. Live Preview Registration Summary (DOM Manipulation)
-       ---------------------------------------------------------------------- */
-    function updateLivePreview() {
-        var nameVal = $("#fullName").val().trim();
-        var npmVal = $("#npm").val().trim();
-        var sessionVal = $("#workshopSession").val();
-
-        if (nameVal !== "" || npmVal !== "" || sessionVal !== "") {
-            $("#livePreviewCard").slideDown(200);
-            $("#prevName").text(nameVal !== "" ? nameVal : "-");
-            $("#prevNpm").text(npmVal !== "" ? npmVal : "-");
-            $("#prevSession").text(sessionVal !== "" ? sessionVal : "-");
-        } else {
-            $("#livePreviewCard").slideUp(200);
-        }
-    }
-
-    $("#fullName, #npm, #workshopSession").on("input change", function () {
-        updateLivePreview();
-    });
-
-    /* ----------------------------------------------------------------------
-       5. Client-side Form Validation (Registration Form)
-       ---------------------------------------------------------------------- */
+    // Client-side Form Validation (Registration Form)
     function validateField(fieldId, errorId, validationFn) {
         var $field = $("#" + fieldId);
         var $error = $("#" + errorId);
@@ -162,28 +56,31 @@ if (typeof $ !== "undefined") {
         }
     }
 
-    // Individual field validation functions
+    // Fungsi validasi bidang individual
     function isNameValid(val) {
         return val.length >= 3;
     }
 
     function isNpmValid(val) {
-        // NPM MUST BE EXACTLY 9 DIGITS per specification requirement
+        // NPM harus 9 digit angka
         var regex = /^\d{9}$/;
         return regex.test(val);
     }
 
     function isEmailValid(val) {
+        // Validasi email sederhana
         var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(val);
     }
 
     function isPhoneValid(val) {
+        // Nomor telepon harus 10-14 digit angka
         var regex = /^\d{10,14}$/;
         return regex.test(val);
     }
 
     function isSelectValid(val) {
+        // Validasi select (dropdown tidak kosong)
         return val !== "" && val !== null;
     }
 
@@ -193,7 +90,7 @@ if (typeof $ !== "undefined") {
     });
 
     $("#npm").on("blur input", function () {
-        // Sanitize non-digits
+        // Karakter non-digit dihapus saat input
         var clean = $(this).val().replace(/\D/g, "");
         $(this).val(clean);
         validateField("npm", "npmError", isNpmValid);
@@ -204,6 +101,7 @@ if (typeof $ !== "undefined") {
     });
 
     $("#phone").on("blur input", function () {
+        // Karakter non-digit dihapus saat input
         var clean = $(this).val().replace(/\D/g, "");
         $(this).val(clean);
         validateField("phone", "phoneError", isPhoneValid);
@@ -227,9 +125,9 @@ if (typeof $ !== "undefined") {
         var v6 = validateField("workshopSession", "workshopSessionError", isSelectValid);
 
         if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6) {
-            e.preventDefault(); // Stop form submission if invalid
+            e.preventDefault(); // Form tidak dikirim (dihentikan)
             
-            // Scroll to the first error element
+            // Scroll ke error pertama
             var $firstError = $(".is-invalid").first();
             if ($firstError.length > 0) {
                 $("html, body").animate({
@@ -237,7 +135,7 @@ if (typeof $ !== "undefined") {
                 }, 400);
             }
 
-            // Display alert banner via DOM
+            // Tampilkan error di atas form
             $("#statusBanner")
                 .html("<div class='alert alert-error'>Harap perbaiki kesalahan pada formulir sebelum mendaftar.</div>")
                 .slideDown(200);
@@ -245,28 +143,15 @@ if (typeof $ !== "undefined") {
             return false;
         }
 
-        // Form is valid! Allow native submission to php/process_registration.php
+        // Form valid!
         return true;
     });
 
-    // Reset button clears preview
+    // Reset button
     $("#resetBtn").on("click", function () {
         $(".form-control, .form-select, .form-textarea").removeClass("is-invalid");
         $(".error-message").hide();
-        $("#livePreviewCard").slideUp(200);
         $("#statusBanner").slideUp(200);
-        $("#charCount").text(maxNotesChar);
     });
-
-    /* ----------------------------------------------------------------------
-       6. Schedule Table Search Filter (jQuery Feature)
-       ---------------------------------------------------------------------- */
-    $("#scheduleSearchInput").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $("#scheduleTable tbody tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-        });
-    });
-
     });
 }
