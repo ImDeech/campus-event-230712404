@@ -2,14 +2,14 @@
 // Set header response
 header('Content-Type: text/html; charset=UTF-8');
 
-// Array to hold validation errors
+// Array untuk menyimpan pesan kesalahan dan status sukses
 $errors = array();
 $successMessage = "";
 
-// Ensure request method is POST
+// Memastikan menggunakan request method POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // 1. Sanitize & retrieve inputs
+    // 1. Bersihkan dan ambil data dari form
     $fullName        = isset($_POST['fullName'])        ? trim(strip_tags($_POST['fullName'])) : '';
     $npm             = isset($_POST['npm'])             ? trim(strip_tags($_POST['npm'])) : '';
     $email           = isset($_POST['email'])           ? trim(strip_tags($_POST['email'])) : '';
@@ -20,58 +20,58 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // 2. Server-side Validation Logic
 
-    // Validate Full Name
+    // Validasi nama lengkap (minimal 3 karakter)
     if (empty($fullName) || strlen($fullName) < 3) {
         $errors[] = "Nama Lengkap wajib diisi dan minimal 3 karakter.";
     }
 
-    // Validate NPM (Must be exactly 9 digits)
+    // Validasi NPM (minimal 9 digit)
     if (empty($npm) || !preg_match('/^\d{9}$/', $npm)) {
         $errors[] = "NPM harus berupa 9 digit angka (contoh: 210711234).";
     }
 
-    // Validate Email
+    // Validasi Email
     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Alamat email tidak valid.";
     }
 
-    // Validate Phone Number
+    // Validasi Nomor Telepon
     if (empty($phone) || !preg_match('/^\d{10,14}$/', $phone)) {
         $errors[] = "Nomor telepon harus berupa angka antara 10 hingga 14 digit.";
     }
 
-    // Validate Study Program
+    // Validasi Program Studi
     if (empty($studyProgram)) {
         $errors[] = "Silakan pilih Program Studi.";
     }
 
-    // Validate Workshop Session
+    // Validasi Sesi Workshop
     if (empty($workshopSession)) {
         $errors[] = "Silakan pilih Sesi Workshop.";
     }
 
-    // Replace newlines in notes to keep single line format
+    // Ganti baris baru dalam catatan agar tetap dalam format satu baris
     $notesClean = str_replace(array("\r", "\n", "|"), " ", $notes);
     if (empty($notesClean)) {
         $notesClean = "-";
     }
 
-    // 3. Process Data if validation passes
+    // 3. Proses data (jika validasi sukses)
     if (empty($errors)) {
         $timestamp = date("Y-m-d H:i:s");
         $dataFile  = __DIR__ . '/../data/participants.txt';
 
-        // Prepare record line (Pipe delimited format)
-        // Format: Timestamp | NPM | Full Name | Email | Phone | Study Program | Session | Notes
+        // Siapkan baris data
+        // Format: Timestamp | NPM | Nama | Email | No Telepon | Program Studi | Sesi | Catatan
         $recordLine = "{$timestamp} | {$npm} | {$fullName} | {$email} | {$phone} | {$studyProgram} | {$workshopSession} | {$notesClean}" . PHP_EOL;
 
-        // Ensure data directory exists
+        // Pastikan direktori data ada
         $dataDir = dirname($dataFile);
         if (!is_dir($dataDir)) {
             mkdir($dataDir, 0755, true);
         }
 
-        // Save data by appending to participants.txt
+        // Simpan data (tambah baris baru di participants.txt)
         if (file_put_contents($dataFile, $recordLine, FILE_APPEND | LOCK_EX) !== false) {
             $success = true;
         } else {
@@ -177,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
 
                 <div class="status-back-action">
-                    <a href="../registration.xhtml" class="btn btn-primary">&laquo; Kembali ke Form Pendaftaran</a>
+                    <a href="../registration.xhtml" class="btn btn-primary">Kembali ke Form Pendaftaran</a>
                 </div>
             <?php endif; ?>
 
