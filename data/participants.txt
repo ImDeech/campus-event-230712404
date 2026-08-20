@@ -1,0 +1,4 @@
+2026-08-19 11:59:57 | 230712404 | Devin | devin@students.uajy.ac.id | 08123482913 | Informatika | Session 1: Introduction to Generative AI & Prompt Engineering | jangan lupa makanannya!
+2026-08-19 12:00:47 | 201837401 | dawg | dep@gmail.com | 088828371903 | Sistem Informasi | Session 1: Introduction to Generative AI & Prompt Engineering | dawg
+2026-08-19 13:02:17 | 230712420 | Gian Ananta Koleba | giannkolebaa@gmail.com | 082291915413 | Teknik Sipil | Session 1: Introduction to Generative AI & Prompt Engineering | -
+2026-08-19 13:29:48 | 239018301 | demp | dep@gmail.com | 088828371903 | Teknik Sipil | Session 2: Hands-on: Boosting Academic Productivity with AI | aaa
